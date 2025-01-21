@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 if (data.success) {
-                    window.location.href = `/sales/${data.sale.id}/invoice`;
+                    window.location.href = `/babypluspos/sales/${data.sale.id}/invoice`;
                 } else {
                     alert(data.message || 'Error processing sale');
                 }

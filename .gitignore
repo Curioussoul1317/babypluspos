@@ -21,3 +21,8 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+.htaccess
+public/.htaccess
+.env
+.env.backup
+.env.production
