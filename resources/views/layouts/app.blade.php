@@ -226,10 +226,11 @@
 <script src="{{ asset('js/jquery.min.js')}}"></script>
 <script>
 $(document).ready(function() {
+     const BASE_URL = '{{ config('app.base_path', '') }}';
     // Function to check for new orders
     function checkNewOrders() {
         $.ajax({
-            url: '/check-new-orders', // Your Laravel route
+            url: BASE_URL + '/check-new-orders', // Your Laravel route
             method: 'GET',
             success: function(response) {
                 if (response.hasNewOrders) {
@@ -237,6 +238,7 @@ $(document).ready(function() {
                     $('#bell').css('color', '#cf0000');
                     // Optionally play a sound
                     // new Audio('/path/to/notification.mp3').play();
+                    console.log("ok");
                 }
             },
             error: function(xhr) {
@@ -246,7 +248,7 @@ $(document).ready(function() {
     }
 
     // Check every 5 minutes (300000 milliseconds)
-    setInterval(checkNewOrders, 5000);
+    setInterval(checkNewOrders, 300000);
 
     // Also check immediately when page loads
     checkNewOrders();

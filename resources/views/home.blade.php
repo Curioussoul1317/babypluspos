@@ -64,18 +64,7 @@
                             <div class="h1 mb-3">BRANDS</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                   <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-category-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -99,18 +88,7 @@
                             <div class="h1 mb-3">CATEGORIES</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-category"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v6h-6z" /><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -135,18 +113,7 @@
                             <div class="h1 mb-3">INVENTORY</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                   <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-list-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3.5 5.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 11.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 17.5l1.5 1.5l2.5 -2.5" /><path d="M11 6l9 0" /><path d="M11 12l9 0" /><path d="M11 18l9 0" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -174,18 +141,7 @@
                             <div class="h1 mb-3">SALES</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                   <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-report-money"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M12 17v1m0 -8v1" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -212,18 +168,7 @@
                             <div class="h1 mb-3">SALES REPORTS</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                   <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-report"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" /><path d="M18 14v4h4" /><path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" /><path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M8 11h4" /><path d="M8 15h3" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -249,18 +194,7 @@
                             <div class="h1 mb-3">CUSTOMERS</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                   <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-users"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -285,18 +219,7 @@
                             <div class="h1 mb-3">USERS</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
@@ -321,18 +244,7 @@
                             <div class="h1 mb-3">ORDERS</div>
                             <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
                                 <div style="color:#2e9acf" class="svgdiv">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                    </svg>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
                                 </div>
                             </div>
                             <div id="chart-active-users" class="chart-sm"></div>
