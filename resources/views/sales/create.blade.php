@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         searchTimeout = setTimeout(() => {
-            fetch(`${BASE_URL}/sales/search/products?search=${encodeURIComponent(query)}`, {
+            fetch(`/babypluspos/sales/search/products?search=${encodeURIComponent(query)}`, {
                     headers: {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
                             .content,
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }))
         };
 
-        fetch(BASE_URL + '/sales',{
+        fetch('/babypluspos/sales',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
