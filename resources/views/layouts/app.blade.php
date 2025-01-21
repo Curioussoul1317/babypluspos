@@ -225,12 +225,14 @@
 <script src="{{ asset('js/tabler.min.js')}}"></script>
 <script src="{{ asset('js/jquery.min.js')}}"></script>
 <script>
-$(document).ready(function() {
-     const BASE_URL = '{{ config('app.base_path', '') }}';
+    const BASE_URL = '{{ rtrim(config("app.url") . config("app.base_path", ""), "/") }}';
+</script>
+<script>
+$(document).ready(function() { 
     // Function to check for new orders
     function checkNewOrders() {
         $.ajax({
-            url: BASE_URL + '/check-new-orders', // Your Laravel route
+            url: '/babypluspos/check-new-orders', // Your Laravel route
             method: 'GET',
             success: function(response) {
                 if (response.hasNewOrders) {
