@@ -191,7 +191,7 @@ tfoot tr {
 // public/js/sales.js
 let cart = [];
 let searchTimeout;
- const BASE_URL = '{{ config('app.base_path', '') }}';
+ 
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('product-search');
     const searchResults = document.getElementById('search-results');
