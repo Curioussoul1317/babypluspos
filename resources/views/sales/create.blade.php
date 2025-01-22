@@ -38,11 +38,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="mb-1 col-sm-8 col-md-4">
-                                <input type="text" id="product-search" placeholder="Search " class="form-control">
+                                <input type="text" id="product-search" placeholder="Search " class="form-control" style="border: 2px solid rgb(255, 0, 0) ;    background-color: #ffe8e8;">
 
                             </div>
                             <div class="mb-1 col-sm-4 col-md-4">
-                                <select name="customer_id" id="customer_id" class="form-select">
+                                <select name="customer_id" id="customer_id" class="form-select" style="border: 2px solid rgb(255, 0, 0) ;">
                                     <option value="">Walk-in Customer</option>
                                     @foreach($customers as $customer)
                                     <option value="{{ $customer->id }}">
@@ -53,7 +53,7 @@
                             </div>
                             <div class="mb-1 col-sm-4 col-md-4">
                                 <input type="number" id="discount_amount" step="0.01" min="0" placeholder="Discount "
-                                    class="form-control" onchange="updateTotals()">
+                                    class="form-control" onchange="updateTotals()" style="border: 2px solid red ;">
                             </div>
                             <div class="row justify-content-md-center">
                                 <div id="search-results" class="col-md-10 overflow-auto" style="position: absolute; top: 75px;  z-index: 3; height:500px; background-color:rgb(255 255 255 / 52%);border-radius: 15px;
@@ -108,7 +108,7 @@ box-shadow: 2px 10px 21px 1px rgba(0,0,0,0.33); padding: 20px;">
                         <div class="row">
                             <div class="mb-6 col-sm-6 col-md-6">
                                 <select name="payment_method" id="payment_method" class="form-select" required
-                                    style="background-color:#71b9ff;">
+                                    style="background-color:#00a633;">
                                     <option value="">Select Payment Method</option>
                                     <option value="cash">Cash</option>
                                     <option value="card">Card</option>
@@ -205,10 +205,16 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(searchTimeout);
         const query = this.value.trim();
 
-        if (query.length < 2) {
-            searchResults.innerHTML = '';
-            return;
-        }
+        // if (query.length < 2) {
+        //     searchResults.innerHTML = '';
+        //     return;
+        // }
+
+        if (!query) {
+        searchResults.innerHTML = '';
+         document.getElementById("search-results").style.visibility = "hidden";
+        return;
+    }
 
         searchTimeout = setTimeout(() => {
             fetch(`/babypluspos/sales/search/products?search=${encodeURIComponent(query)}`, {
@@ -225,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (products != 0) {
                         document.getElementById("search-results").style.visibility =
                             "visible";
-                    }
+                    } 
                     searchResults.innerHTML = '';
                     products.forEach(product => {
                         const div = document.createElement('div');

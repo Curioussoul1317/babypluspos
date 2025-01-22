@@ -4,7 +4,7 @@
 
 <div class="page-header d-print-none">
     <div class="container-xl">
-        <div class="row g-2 align-items-center">
+        <div class="row g-2 align-items-center" style="margin-bottom: 10px;">
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
@@ -17,8 +17,9 @@
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
-                        data-bs-target="#modal-full-width">
+                    
+                     <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                        data-bs-target="#modal-brand">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -27,10 +28,10 @@
                             <path d="M12 5l0 14"></path>
                             <path d="M5 12l14 0"></path>
                         </svg>
-                        Add New Item
+                        Create new Brand
                     </a>
-                    <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
-                        data-bs-target="#modal-report" aria-label="Create new report">
+                     <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                        data-bs-target="#modal-category">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -39,6 +40,7 @@
                             <path d="M12 5l0 14"></path>
                             <path d="M5 12l14 0"></path>
                         </svg>
+                        Create new Category
                     </a>
                 </div>
             </div>
@@ -46,11 +48,11 @@
         <!-- ////////////////// -->
 
         <div class="card card-active">
-            <div class="card-body">
+            <div class="card-body"> 
                 <form action="{{ route('inventory.index') }}" method="GET">
                     <div class="row">
-                        <div class="col col-md-3">
-                            <div class="input-icon mb-3">
+                        <div class="col-sm-12 col-lg-3">
+                            <div class="input-icon">
                                 <input type="text" name="search" id="search" value="{{ request('search') }}"
                                     placeholder="Search by name, or barcode" class="form-control">
                                 <span class="input-icon-addon">
@@ -65,7 +67,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-sm-12 col-lg-2">
                             <select name="brand" id="brand" class="form-select">
                                 <option value="">All Brands</option>
                                 @foreach($brands as $brand)
@@ -75,7 +77,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col"> <select name="category" id="category" class="form-select">
+                        <div class="col-sm-12 col-lg-2"> <select name="category" id="category" class="form-select">
                                 <option value="">All Categories</option>
                                 @foreach($categories as $category)
                                 <option value="{{ $category->id }}"
@@ -84,7 +86,7 @@
                                 </option>
                                 @endforeach
                             </select></div>
-                        <div class="col"><select name="stock_status" id="stock_status" class="form-select">
+                        <div class="col-sm-12 col-lg-2"><select name="stock_status" id="stock_status" class="form-select">
                                 <option value="">All Stock Status</option>
                                 <option value="in_stock" {{ request('stock_status') == 'in_stock' ? 'selected' : '' }}>
                                     In Stock
@@ -98,9 +100,9 @@
                                     Out
                                     of Stock</option>
                             </select></div>
-                        <div class="col">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="submit" class="btn btn-danger"> Apply Filters</button>
+                        <div class="col-sm-12 col-lg-2">
+                            <div class="btn-group btn-sm" role="group" aria-label="Basic example">
+                                <button type="submit" class="btn btn-danger "> Apply Filters</button>
                                 <a href="{{ route('inventory.index') }}" class="btn btn-success">
                                     Clear Filters
                                 </a>
@@ -111,122 +113,21 @@
             </div>
         </div>
 
-        <!-- /////////////// -->
+        <!-- /////////////// --> 
     </div>
 </div>
 
 <div class="page-body">
     <div class="container-xl">
         <!-- CONTENTS -->
-        <div class="row row-cards">
 
-            <div class="col-12">
-                <div class="card">
-                    <div class="table-responsive">
-                        <table class="table table-vcenter card-table">
-                            <thead>
-                                <tr>
-                                    <th>Name and Item Code</th>
-                                    <th>Barcode</th>
-                                    <th>Brand</th>
-                                    <th>Category</th>
-                                    <th>QTY</th>
-                                    <th>Gender</th>
-                                    <th>Age</th>
-                                    <th>Colour</th>
-                                    <th>Volume</th>
-                                    <th>Cost</th>
-                                    <th>Price</th>
-                                    <th class="w-1"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($items as $item)
-                                <tr>
-                                    <td>
-                                        <div class="d-flex py-1 align-items-center">
-                                            @if($item->getPrimaryImage())
-                                            <span class="avatar me-2"
-                                                style="background-image: url({{ asset('storage/' . $item->getPrimaryImage()->image_path) }})"></span>
-                                            @else
-                                            @endif
-                                            <div class="flex-fill">
-                                                <div class="font-weight-medium"> {{ $item->name}}</div>
-                                                <div class="text-secondary"><a href="#"
-                                                        class="text-reset">{{ $item->item_code}}</a></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->barcode}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->brand->name}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->category->name}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->stock_quantity}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->gender}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->age}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->colour}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->volume}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ number_format($item->unit_cost, 2) }}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{ $item->unit_price}}</div>
-                                    </td>
-                                    <td>
-                                        <div class="flex space-x-2">
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a href="{{ route('inventory.show', $item) }}"
-                                                    class="btn btn-secondary">View</a>
-                                                <a href="{{ route('inventory.edit', $item) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer d-flex align-items-center">
-                    </div>
-                </div>
-                <div class="row justify-content-md-center">
-                    <div class="col-md-auto">
-                        {{ $items->links() }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="modal modal-blur fade" id="modal-full-width" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">New Item</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <form action="{{ route('inventory.store') }}" method="POST" enctype="multipart/form-data">
+   <button class="btn btn-primary col-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+ ADD NEW ITEM
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body card-active">
+        <form action="{{ route('inventory.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="modal-body">
@@ -237,7 +138,7 @@
                                 <label class="form-label">Barcode</label>
                                 <div class="input-group input-group-flat">
                                     <input type="text" name="barcode" id="barcode" value="{{ old('barcode') }}"
-                                        class="form-control">
+                                        class="form-control"  autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -404,9 +305,134 @@
                 </div>
             </form>
 
+  </div>
+</div>
+
+
+
+
+
+        <div class="row row-cards">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table table-vcenter card-table">
+                            <thead>
+                                <tr>
+                                    <th>Name and Item Code</th>
+                                    <th>Barcode</th>
+                                    <th>Brand</th>
+                                    <th>Category</th>
+                                    <th>QTY</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Colour</th>
+                                    <th>Volume</th>
+                                    <th>Cost</th>
+                                    <th>Price</th>
+                                    <th class="w-1"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($items as $item)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex py-1 align-items-center">
+                                            @if($item->getPrimaryImage())
+                                            <span class="avatar me-2"
+                                                style="background-image: url({{ asset('storage/' . $item->getPrimaryImage()->image_path) }})"></span>
+                                            @else
+                                            @endif
+                                            <div class="flex-fill">
+                                                <div class="font-weight-medium"> {{ $item->name}}</div>
+                                                <div class="text-secondary"><a href="#"
+                                                        class="text-reset">{{ $item->item_code}}</a></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->barcode}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->brand->name}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->category->name}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->stock_quantity}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->gender}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->age}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->colour}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->volume}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ number_format($item->unit_cost, 2) }}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $item->unit_price}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <a href="{{ route('inventory.show', $item) }}"
+                                                    class="btn btn-secondary">View</a>
+                                                <a href="{{ route('inventory.edit', $item) }}"
+                                                    class="btn btn-primary">Edit</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer d-flex align-items-center">
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto">
+                        {{ $items->links() }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+
+
+<div class="modal modal-blur fade" id="modal-full-width" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+        
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('barcode-input').addEventListener('keypress', function(event) {
+    // Prevent form submission on Enter key
+    if (event.key === 'Enter') {
+        event.preventDefault(); 
+        let barcodeValue = this.value; 
+    }
+});
+    </script>
 
 @endsection

@@ -3,31 +3,11 @@
 @section('content')
 
 
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <div class="row g-2 align-items-center">
-            <div class="col">
-                <!-- Page pre-title -->
-                <h2 class="page-title">
-                    Dashboard
-                </h2>
-            </div>
-            <!-- Page title actions -->
-            <div class="col-auto ms-auto d-print-none">
-
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Page body -->
 <div class="page-body">
     <div class="container-xl">
 
-        <div class="row" style="margin-bottom: 15px;">
-            <div class="col-12 text-center">
-                <img src="{{asset('/img/logo.png')}}" alt="Tabler" class="">
-            </div>
-        </div>
+       
 
         <style>
         .cardlink {
@@ -46,8 +26,35 @@
             stroke-width: 1.5;
         }
         </style>
-        <div class="row row-deck row-cards">
+        
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-8">
+        
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <!-- Page pre-title -->
+                        <h2 class="page-title">
+                            Dashboard
+                        </h2>
+                    </div>
+                    <!-- Page title actions -->
+                    <div class="col-auto ms-auto d-print-none">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="row" style="margin-bottom: 15px;">
+            <div class="col-12 text-center"> 
+                <!-- <img src="{{asset('/img/babyplus.png')}}" alt="Tabler" class=""> -->
+            </div>
+        </div>
+
+        
+       <div class="row row-deck row-cards">
 
             <div class="col-sm-6 col-lg-2">
                 <a href="{{ route('brands.index') }}" class="cardlink" style="border-radius: 15px;">
@@ -253,11 +260,9 @@
                 </a>
             </div>
 
-
-
-
-
         </div>
+    </div> 
+  </div>       
     </div>
 </div>
 @endsection

@@ -32,10 +32,12 @@ class InventoryController extends Controller
             $search = $request->search;
             $query->where(function($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%") 
-                  ->orWhere('barcode', 'like', "%{$search}%");
+                  ->orWhere('barcode', 'like', "%{$search}%")
+                  ->orWhere('item_code', 'like', "%{$search}%");
             });
         }
 
+        
         // Brand Filter
         if ($request->filled('brand')) {
             $query->where('brand_id', $request->brand);
@@ -61,7 +63,7 @@ class InventoryController extends Controller
             } 
         }
 
-        $items = $query->latest()->paginate(3)->withQueryString();
+        $items = $query->latest()->paginate(3)->withQueryString(); 
         $brands = brands::orderBy('name')->get();
         $categories = categories::orderBy('name')->get();
 
