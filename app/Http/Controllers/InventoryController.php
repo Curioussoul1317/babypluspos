@@ -99,7 +99,8 @@ class InventoryController extends Controller
             'volume' => 'nullable',
             'unit_cost'=> 'required|numeric|min:0',
             'unit_price' => 'required|numeric|min:0',
-            'stock_quantity' => 'required|integer|min:0',             
+            'stock_quantity' => 'required|integer|min:0',     
+            'discount_percentage'  => 'nullable',    
             'images.*' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
@@ -156,7 +157,8 @@ class InventoryController extends Controller
             'volume' => 'nullable',
             'unit_cost'=> 'required|numeric|min:0',
             'unit_price' => 'required|numeric|min:0',
-            'stock_quantity' => 'required|integer|min:0',             
+            'stock_quantity' => 'required|integer|min:0',  
+            'discount_percentage'  => 'nullable',               
             'images.*' => 'image|mimes:jpeg,png,jpg|max:2048' 
         ]); 
 

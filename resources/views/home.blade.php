@@ -260,6 +260,57 @@
                 </a>
             </div>
 
+              <div class="col-sm-6 col-lg-2">
+                <a href="{{ route('expenses.index') }}" class="cardlink" style="border-radius: 15px;">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar bg-primary" style="width: 100%" role="progressbar"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                        aria-label="100% Complete">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h1 mb-3">EXPENSES</div>
+                            <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
+                                <div style="color:#ff5656" class="svgdiv">
+                              <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-coins"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3z" /><path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4" /><path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598z" /><path d="M3 6v10c0 .888 .772 1.45 2 2" /><path d="M3 11c0 .888 .772 1.45 2 2" /></svg> </div>
+                            </div>
+                            <div id="chart-active-users" class="chart-sm"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+              <div class="col-sm-6 col-lg-2">
+                <a href="{{ route('loans.index') }}" class="cardlink" style="border-radius: 15px;">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar bg-primary" style="width: 100%" role="progressbar"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                        aria-label="100% Complete">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h1 mb-3">LOANS</div>
+                            <div class="ms-auto" style="position: absolute; bottom:0; right: 0; ">
+                                <div style="color:#ff0000" class="svgdiv">
+                              <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-businessplan"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 6m-5 0a5 3 0 1 0 10 0a5 3 0 1 0 -10 0" /><path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4" /><path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4" /><path d="M11 14v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4" /><path d="M7 9h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M5 15v1m0 -8v1" /></svg> </div>
+                            </div>
+                            <div id="chart-active-users" class="chart-sm"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+
         </div>
     </div> 
   </div>       

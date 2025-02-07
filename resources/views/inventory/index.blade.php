@@ -331,6 +331,7 @@
                                     <th>Volume</th>
                                     <th>Cost</th>
                                     <th>Price</th>
+                                    <th>Discounted</th>
                                     <th class="w-1"></th>
                                 </tr>
                             </thead>
@@ -381,6 +382,9 @@
                                     <td>
                                         <div>{{ $item->unit_price}}</div>
                                     </td>
+                                     <td>
+                                        <div>{{ $item->discount_percentage}}</div>
+                                    </td> 
                                     <td>
                                         <div class="flex space-x-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">

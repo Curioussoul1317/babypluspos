@@ -58,6 +58,7 @@
                                 {{ $inventory->stock_quantity ?? 'N/A' }}</span>
                             <span class="badge bg-cyan text-cyan-fg">barcode:
                                 {{ $inventory->barcode ?? 'N/A' }}</span>
+                                 <span class="badge bg-red text-red-fg">Discount : {{ $inventory->discount_percentage ?? 'N/A' }} %</span>
                         </div>
                     </div>
                 </div>

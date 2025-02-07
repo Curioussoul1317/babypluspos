@@ -18,6 +18,7 @@ class sales extends Model
         'tax',
         'discount',
         'total',
+        'total_cost',
         'payment_status',
         'payment_method',
         'voided_at',

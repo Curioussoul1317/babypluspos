@@ -72,11 +72,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-
-                                <div class="row">
                                     <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label class="form-label">Brand</label>
@@ -93,6 +88,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    
                                     <div class="col-lg-2">
                                         <div class="mb-3">
                                             <label class="form-label">Category</label>
@@ -178,6 +179,16 @@
                                             <div class="input-group input-group-flat">
                                                 <input type="number" name="stock_quantity" id="stock_quantity"
                                                     value="{{ old('stock_quantity', $inventory->stock_quantity) }}"
+                                                    class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                     <div class="col-lg-1">
+                                        <div class="mb-3">
+                                            <label class="form-label"> Discount Percentage</label>
+                                            <div class="input-group input-group-flat">
+                                                <input type="number" name="discount_percentage" id="discount_percentage"
+                                                    value="{{ old('discount_percentage', $inventory->discount_percentage) }}"
                                                     class="form-control" required>
                                             </div>
                                         </div>

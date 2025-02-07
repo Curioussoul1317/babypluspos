@@ -86,18 +86,18 @@ box-shadow: 2px 10px 21px 1px rgba(0,0,0,0.33); padding: 20px;">
 
                                         <td colspan="4" class="px-4 py-2 text-right font-bold"
                                             style="text-align: right;">
-                                            <strong>Subtotal: <span id="subtotal-amount" class="font-bold">Mrf
+                                            <strong>Subtotal: <span id="subtotal-amount" class="font-bold">Mvr
                                                     0.00 |</span>
-                                            </strong><strong>Tax: <span id="tax-amount" class="font-bold">Mrf
+                                            </strong><strong>Tax: <span id="tax-amount" class="font-bold">Mvr
                                                     0.00</span> |</strong>
-                                            <strong>Discount: <span id="discount-amount" class="font-bold text-lg">Mrf
+                                            <strong>Discount: <span id="discount-amount" class="font-bold text-lg">Mvr
                                                     0.00</span>
                                             </strong>
                                         </td>
                                         <td class="px-4 py-2 border" style="text-align: center;  font-size:  large;
                                          background-color: #e7e7e7; ">
                                             <strong><span id="total-amount" class="font-bold">
-                                                    Mrf 0.00 /-</span>
+                                                    Mvr 0.00 /-</span>
                                             </strong>
                                         </td>
                                     </tr>
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartTable = document.getElementById('cart-items');
     const checkoutForm = document.getElementById('checkout-form');
     document.getElementById("search-results").style.visibility = "hidden";
-
+    let totalcost = 0;
 
     // Product search with debounce
     searchInput.addEventListener('input', function() {
@@ -241,7 +241,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         `<img src="${product.image}" class="avatar me-2">` : 
                         '<span class="avatar me-2" style="background-image: url(./static/avatars/008f.jpg)"></span> '} </div>
                         <div class="col" style="margin: auto;">${product.name}</div>
-                        <div class="col"style="margin: auto;"> Mrf${product.price}</div>
+                        <div class="col"style="margin: auto;"> Mvr${product.price}   
+                        </div>
                         <div class="col"style="margin: auto;"> ${product.stock}</div>
                         </div>                        
  
@@ -273,9 +274,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: product.id,
                 name: product.name,
                 price: parseFloat(product.price),
+                cost:parseFloat(product.cost),
+                discount: parseInt(product.discount_percentage),
                 quantity: 1,
                 stock: product.stock
+              
             });
+              
         }
 
         updateCartDisplay();
@@ -306,8 +311,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update totals calculation
     window.updateTotals = function() {
         let subtotal = 0;
+         let subcost = 0;
         cart.forEach(item => {
-            subtotal += item.price * item.quantity;
+            if(item.discount){
+             var tempdisprice =  item.price * (1 - item.discount/100);
+             var tempprice = tempdisprice;
+             subtotal += tempprice * item.quantity;
+            }else{
+                subtotal += item.price * item.quantity;
+            }
+            subcost +=item.cost* item.quantity;
         });
 
         const discountAmount = parseFloat(document.getElementById('discount_amount').value || 0);
@@ -319,22 +332,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const total = Math.round(discountedSubtotal + tax);
 
         // Update display
-        document.getElementById('subtotal-amount').textContent = `Mrf ${subtotal.toFixed(2)}`;
-        document.getElementById('discount-amount').textContent = `-Mrf ${discountAmount.toFixed(2)}`;
-        document.getElementById('tax-amount').textContent = `Mrf ${tax.toFixed(2)}`;
-        document.getElementById('total-amount').textContent = `Mrf ${total} /-`;
+        document.getElementById('subtotal-amount').textContent = `Mvr ${subtotal.toFixed(2)} ${subcost.toFixed(2)}`;
+        document.getElementById('discount-amount').textContent = `-Mvr ${discountAmount.toFixed(2)}`;
+        document.getElementById('tax-amount').textContent = `Mvr ${tax.toFixed(2)}`;
+        document.getElementById('total-amount').textContent = `Mvr ${total} /-`;
+        totalcost=subcost.toFixed(2);
+        console.log(totalcost);
     };
 
     // Update cart display
     window.updateCartDisplay = function() {
         cartTable.innerHTML = '';
         let total = 0;
-
-        cart.forEach((item, index) => {
+        var itemprice=0;
+        cart.forEach((item, index) => { 
+            if(item.discount){
+             var discountprice =  item.price * (1 - item.discount/100);
+             itemprice=discountprice;
+            }else{
+               itemprice=item.price.toFixed(2); 
+            }
             const row = document.createElement('tr');
             row.className = 'hover:bg-gray-50';
             row.innerHTML = `
-                <td class="px-4 py-2 border-b">${item.name}</td>
+                <td class="px-4 py-2 border-b">${item.name} </td>
                 <td class="border-b " style="margin: auto;">
                     <input type="number" 
                            value="${item.quantity}" 
@@ -343,8 +364,11 @@ document.addEventListener('DOMContentLoaded', function() {
                            class="form-control"
                            onchange="updateQuantity(${index}, this.value)">
                 </td>
-                <td class="px-4 py-2 border-b text-right">$${item.price.toFixed(2)}</td>
-                <td class="px-4 py-2 border-b text-right">$${(item.price * item.quantity).toFixed(2)}</td>
+                <td class="px-4 py-2 border-b text-right">Mvr 
+                ${item.discount ? 
+                        `<strong>  ${item.price.toFixed(2)} - ${item.discount}%  </strong>` :  `<strong>  ${item.price.toFixed(2)} </strong>`}   
+                </td>
+                <td class="px-4 py-2 border-b text-right">Mvr ${(itemprice* item.quantity).toFixed(2)}</td>
                 <td class="px-4 py-2 border-b ">
                     <button onclick="removeFromCart(${index})" 
                             class="btn btn-danger btn-sm" style="float: right;">
@@ -355,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </td>
             `;
             cartTable.appendChild(row);
-            total += item.price * item.quantity;
+            total += itemprice * item.quantity;
         });
 
         updateTotals();
@@ -369,16 +393,18 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Cart is empty');
             return;
         }
-
+        
         const discountAmount = parseFloat(document.getElementById('discount_amount').value || 0);
-
+        var newitemdiscount=0; 
         const formData = {
             customer_id: document.getElementById('customer_id').value || null,
             payment_method: document.getElementById('payment_method').value,
+            total_cost:totalcost,
             discount: discountAmount,
             items: cart.map(item => ({
                 inventory_id: item.id,
                 quantity: item.quantity,
+                itemdiscount:item.discount,
                 unit_price: item.price
             }))
         };

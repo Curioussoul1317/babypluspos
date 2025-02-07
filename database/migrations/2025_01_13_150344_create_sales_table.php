@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('invoice_number')->unique();
             $table->decimal('subtotal', 10, 2);
             $table->decimal('tax', 10, 2);
-            $table->decimal('discount', 10, 2)->default(0);
+            $table->decimal('discount', 10, 2)->default(0);            
             $table->decimal('total', 10, 2);
+            $table->decimal('total_cost', 10, 2);
             $table->enum('payment_status', ['pending', 'paid','voided', 'failed'])->default('pending');
             $table->enum('payment_method', ['cash', 'card', 'bank_transfer'])->nullable();
              $table->timestamp('voided_at')->nullable();

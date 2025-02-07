@@ -54,6 +54,7 @@ class SalesController extends Controller
             'sales' => $sales,
             'salesCount' => $stats['count'],
             'totalRevenue' => $stats['revenue'],
+            'total_cost'=>$stats['total_cost'],
             'averageSale' => $stats['average'],
             'totalItems' => $stats['items'],
         ]);
@@ -110,6 +111,7 @@ class SalesController extends Controller
         $basicStats = $query->select([
             DB::raw('COUNT(*) as count'),
             DB::raw('SUM(total) as total_revenue'),
+            DB::raw('SUM(total_cost) as total_cost'),
             DB::raw('AVG(total) as avg_sale')
         ])->first();
 
@@ -120,6 +122,7 @@ class SalesController extends Controller
         return [
             'count' => $basicStats->count ?? 0,
             'revenue' => $basicStats->total_revenue ?? 0,
+            'total_cost' => $basicStats->total_cost ?? 0,
             'average' => $basicStats->avg_sale ?? 0,
             'items' => $totalItems ?? 0
         ];
@@ -151,6 +154,8 @@ class SalesController extends Controller
                 'id' => $product->id,
                 'name' => $product->name, 
                 'price' => $product->unit_price,
+                'cost' => $product->unit_cost,
+                'discount_percentage' => $product->discount_percentage,
                 'stock' => $product->stock_quantity,
                 'brand' => optional($product->brand)->name,
                 'category' => optional($product->category)->name,
@@ -170,35 +175,45 @@ class SalesController extends Controller
             'items.*.inventory_id' => 'required|exists:inventories,id', 
             'items.*.quantity' => 'required|integer|min:1',
             'items.*.unit_price' => 'required|numeric|min:0',
+            'items.*.itemdiscount'  => 'nullable',
             'discount' => 'min:0',
+            'total_cost'=> 'min:0',
             'tax' => 'min:0',            
             'payment_method' => 'required|in:cash,card,bank_transfer'
         ]);
+
+        
 
         try {
             DB::beginTransaction();
 
             $subtotal = 0; 
-            $items = collect($validated['items'])->map(function ($item) use (&$subtotal) {
-            $itemSubtotal = $item['quantity'] * $item['unit_price'];
+            $items = collect($validated['items'])->map(function ($item) use (&$subtotal) { 
+            if($item['itemdiscount'] !=0){
+               $tempitemSubtotal = $item['unit_price'] * (1 - $item['itemdiscount']/100); 
+                $itemSubtotal = $item['quantity'] * $tempitemSubtotal;
+            }else{
+               $itemSubtotal = $item['quantity'] *$item['unit_price'];
+            } 
             $subtotal += $itemSubtotal;
             return array_merge($item, ['subtotal' => $itemSubtotal]);
         });
 
         $tax = $subtotal * config('pos.tax_rate', 0.08); // 10% tax
         $total = $subtotal + $tax;
-
-
+        $total_cost=$validated['total_cost'];
+ 
             // Create sale
             $sale = new sales();
             $sale->customer_id = $validated['customer_id'];
             $sale->invoice_number = sales::generateInvoiceNumber();
             $sale->payment_method = $validated['payment_method'];
             $sale->payment_status = 'paid';
-            $sale->subtotal =$subtotal;
-            $sale->tax = $tax; 
+            $sale->subtotal =round($subtotal);
+            $sale->tax = round($tax); 
             $sale->discount =  $validated['discount'];
-            $sale->total = $total;
+            $sale->total = round($total);
+            $sale->total_cost = round($total_cost);
             $sale->sales_type="shop";
             $sale->cart_number="";  
             $sale->save();
@@ -236,9 +251,9 @@ class SalesController extends Controller
             $total =$totalone-$validated['discount'];
 
             $sale->update([
-                'subtotal' => $subtotal,
-                'tax' => $tax,
-                'total' => $total
+                'subtotal' => round($subtotal),
+                'tax' => round($tax),
+                'total' => round($total),
             ]);
 
             DB::commit();

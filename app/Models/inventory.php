@@ -25,8 +25,9 @@ class inventory extends Model
             'volume', 
             'unit_cost',  
             'unit_price',  
-            'stock_quantity', 
-    ];
+            'stock_quantity',  
+            'discount_percentage'
+    ]; 
 
     protected $casts = [
         'unit_price' => 'decimal:2',

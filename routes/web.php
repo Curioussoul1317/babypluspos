@@ -8,6 +8,10 @@ use App\Http\Controllers\SalesController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartsController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\LoanController;
+use App\Http\Controllers\LoanPaymentController;
+use App\Models\Loan;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,24 +26,24 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
  
 // 
 
-// Registration Routes
-Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+// // Registration Routes
+// Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
 // Password Reset Routes
-Route::get('/password/reset', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('/password/email', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('/password/reset/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-Route::post('/password/reset', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
+// Route::get('/password/reset', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+// Route::post('/password/email', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+// Route::get('/password/reset/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+// Route::post('/password/reset', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
 
-// Password Confirmation Routes
-Route::get('/password/confirm', [App\Http\Controllers\Auth\ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
-Route::post('/password/confirm', [App\Http\Controllers\Auth\ConfirmPasswordController::class, 'confirm']);
+// // Password Confirmation Routes
+// Route::get('/password/confirm', [App\Http\Controllers\Auth\ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
+// Route::post('/password/confirm', [App\Http\Controllers\Auth\ConfirmPasswordController::class, 'confirm']);
 
-// Email Verification Routes
-Route::get('/email/verify', [App\Http\Controllers\Auth\VerificationController::class, 'show'])->name('verification.notice');
-Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\Auth\VerificationController::class, 'verify'])->name('verification.verify');
-Route::post('/email/resend', [App\Http\Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
+// // Email Verification Routes
+// Route::get('/email/verify', [App\Http\Controllers\Auth\VerificationController::class, 'show'])->name('verification.notice');
+// Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\Auth\VerificationController::class, 'verify'])->name('verification.verify');
+// Route::post('/email/resend', [App\Http\Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
 
 
@@ -145,5 +149,24 @@ Route::get('/customers/export', [CustomersController::class, 'export'])->name('c
     // Checkout Routes
     Route::get('/checkout', [CartsController::class, 'checkout'])->name('cart.checkout');
     Route::post('/checkout/process', [CartsController::class, 'processCheckout'])->name('cart.processPayment');
+
+
+     
+    // Expense routes
+    Route::resource('expenses', ExpenseController::class);
+Route::get('expenses/category/{category}', [ExpenseController::class, 'byCategory'])->name('expenses.category');
+    Route::get('expenses/report/monthly', [ExpenseController::class, 'monthlyReport']);
+    
+    // Loan routes
+    Route::resource('loans', LoanController::class);
+   Route::get('loans/status/{status}', [LoanController::class, 'byStatus'])->name('loans.status');
+   
+     Route::post('loans/{loan}/approve', [LoanController::class, 'approve']);
+    Route::post('loans/{loan}/reject', [LoanController::class, 'reject']);
+    
+    // Loan payment routes
+    Route::resource('loan-payments', LoanPaymentController::class);
+   Route::get('loans/{loan}/payments', [LoanPaymentController::class, 'loanPayments'])->name('loans.payments');
+ Route::get('loans/{loan}/make-payment', [LoanPaymentController::class, 'create'])->name('loan-payments.create');
 
 });

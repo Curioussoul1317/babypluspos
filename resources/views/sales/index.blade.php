@@ -126,14 +126,35 @@
 
             <div class="col-12">
                 <div class="card">
+                    <table class="table table-vcenter card-table">
+                            <thead>
+                                <tr>
+                                    <th>Invoice #</th>
+                                    <th>Customer</th>
+                                    <th>{{$totalItems}}</th>
+                                    <th>{{$total_cost}}</th>
+                                    <th>{{$totalRevenue}}</th>
+                                    <th>{{$totalRevenue-$total_cost}}</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Sales Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                        </table>
+
+
+
                     <div class="table-responsive">
                         <table class="table table-vcenter card-table">
                             <thead>
                                 <tr>
                                     <th>Invoice #</th>
                                     <th>Customer</th>
-                                    <th>Items</th>
+                                    <th>Qty</th>
+                                    <th>Cost</th>
                                     <th>Total</th>
+                                    <th>Profit</th>
                                     <th>Status</th>
                                     <th>Date</th>
                                     <th>Sales Type</th>
@@ -157,7 +178,13 @@
                                         {{ $sale->items->count() }}
                                     </td>
                                     <td>
+                                        Mrf {{ number_format($sale->total_cost, 2) }}
+                                    </td>
+                                     <td>
                                         Mrf {{ number_format($sale->total, 2) }}
+                                    </td>
+                                      <td>
+                                        Mrf {{ number_format($sale->total, 2)-number_format($sale->total_cost, 2) }}
                                     </td>
                                     <td>
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 

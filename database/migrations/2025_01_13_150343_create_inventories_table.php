@@ -30,6 +30,8 @@ return new class extends Migration
             $table->decimal('unit_cost', 10, 2);
             $table->decimal('unit_price', 10, 2);
             $table->integer('stock_quantity');   
+            $table->integer('discount_amount')->nullable();   
+            $table->integer('discount_percentage')->nullable();   
             $table->timestamps();
             $table->softDeletes();
         });
